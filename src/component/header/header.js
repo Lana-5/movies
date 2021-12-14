@@ -8,7 +8,7 @@ import "./header.scss";
 const Header = () => (
   <div className="header ">
     <Grid container justifyContent="center" alignItems="center">
-      <Grid container item xs={8}>
+      <Grid container item xs={12} sm={10} md={8} lg={7}>
         <ul>
           <li>
             <Link to="/movies/">

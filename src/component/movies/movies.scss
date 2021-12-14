@@ -1,6 +1,57 @@
+@mixin font-family_Roboto {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+@mixin font-family_Sans {
+  font-family: "Source Sans Pro", "Arial", sans-serif;
+}
+
+// стили баннера
 .movies {
-  background: steelblue;
+  height: 40%;
   img {
+    display: block;
     width: 100%;
   }
+  &_banner {
+    background: steelblue;
+  }
+}
+
+// стили карточек
+.movie {
+  &_card {
+    background-color: white;
+    margin-bottom: 5%;
+  }
+  &_header {
+    @include font-family_Sans;
+    font-size: 20px;
+  }
+  &_image {
+    img {
+      border-radius: 15px;
+    }
+  }
+
+  &_content {
+    font-size: 11px;
+    margin: 0 auto;
+    display: table;
+
+    @include font-family_Sans;
+    h2 {
+      margin: 6px auto;
+    }
+    h3 {
+      font-weight: lighter;
+      font-size: 17px;
+      margin: 0 auto;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
