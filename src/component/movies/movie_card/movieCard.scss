@@ -1,0 +1,52 @@
+@mixin font-family_Sans {
+  font-family: "Source Sans Pro", "Arial", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
+.movie {
+  &_wrapper {
+    margin: 5px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 2px 8px silver;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+  &_image {
+    img {
+      border-radius: 15px;
+      height: 300px;
+    }
+  }
+
+  &_content {
+    @include font-family_Sans;
+
+    &__title {
+      padding-right: 5px;
+      padding-left: 5px;
+      margin: 10px 0px;
+      font-size: 16px;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* количество строк */
+      -webkit-box-orient: vertical;
+      overflow: hidden; // не показывать что не вмещается
+
+      width: 180px;
+      height: 40px;
+    }
+
+    &_rating {
+      padding-right: 5px;
+      padding-left: 5px;
+      font-weight: lighter;
+      font-size: 16px;
+      margin: 4px 0px;
+    }
+  }
+}

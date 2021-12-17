@@ -1,0 +1,28 @@
+@mixin font-family_Sans {
+  font-family: "Source Sans Pro", "Arial", sans-serif;
+}
+
+.movie {
+  &_detail {
+    &_wrapper {
+      padding-right: 40px;
+      @include font-family_Sans;
+      display: flex;
+      margin-top: 40px;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 2px 8px silver;
+      background-color: silver;
+    }
+    &_image {
+      img {
+        width: 406px;
+        margin-right: 40px;
+      }
+      &_content {
+        &_title {
+          font-weight: 900px;
+        }
+      }
+    }
+  }
+}
