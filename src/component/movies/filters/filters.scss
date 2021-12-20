@@ -1,0 +1,34 @@
+.movies {
+  &_filters {
+    width: 100%;
+    &_search {
+      border: 2px solid #4fc3f7;
+      border-radius: 15px;
+      padding-left: 4px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 5px;
+    }
+    &_sorting {
+      width: 50%;
+      margin: 10px;
+    }
+    &_wrapper {
+      background-color: #e3f2fd;
+      border-radius: 15px;
+      padding: 5%;
+    }
+  }
+}
+
+.css-wjdba9-MuiInputBase-root-MuiInput-root:before {
+  display: none;
+}
+.css-wjdba9-MuiInputBase-root-MuiInput-root:after {
+  display: none;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

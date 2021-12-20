@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 import "./movieDetail.scss";
@@ -9,6 +8,7 @@ const MovieDetail = () => {
   const { id } = useParams();
 
   const [moviedetail, setMovieDetail] = useState([]);
+  //   const [loader, setLoader]= useState([false]);
 
   useEffect(() => {
     axios
