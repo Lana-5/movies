@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -7,33 +7,44 @@ import Select from "@mui/material/Select";
 import "./filters.scss";
 
 const MoviesFilters = (props) => {
-  const { onButtonSearsh, onLabelChange } = props;
+  const { onButtonSearsh, onLabelChange, handleChange, sorting } = props;
 
   return (
     <div className="movies_filters">
-      <Input
-        fullWidth
-        className="movies_filters_search"
-        placeholder="Поиск по фильмам..."
-        onChange={onLabelChange}
-      />
-      <Button variant="contained" disableElevation onClick={onButtonSearsh}>
-        Поиск
-      </Button>
-
+      <div className="movies_filters_input">
+        <TextField
+          fullWidth
+          className="movies_filters_search"
+          placeholder="Поиск по фильмам..."
+          onChange={onLabelChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <Button
+                  variant="contained"
+                  disableElevation
+                  onClick={onButtonSearsh}
+                >
+                  Поиск
+                </Button>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </div>
       <div className="movies_filters_wrapper">
         <FormControl className="movies_filters_sorting">
-          <InputLabel id="demo-simple-select-label">Сортировка</InputLabel>
+          <InputLabel id="demo-simple-select-label">Сортировка по</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={" "}
-            label="Age"
-            onChange={() => {}}
+            value={sorting}
+            onChange={handleChange}
           >
-            <MenuItem value={" "}>Рейтинг</MenuItem>
-            <MenuItem value={" "}>Популярность</MenuItem>
-            <MenuItem value={" "}>Дата выхода</MenuItem>
+            <MenuItem value={1}>Лучший рейтинг</MenuItem>
+            <MenuItem value={2}>Популярность</MenuItem>
+            <MenuItem value={3}>Дата выхода (сначала новые) </MenuItem>
+            <MenuItem value={4}>Дата выхода (сначала старые) </MenuItem>
           </Select>
         </FormControl>
 

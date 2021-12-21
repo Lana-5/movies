@@ -2,12 +2,13 @@
   &_filters {
     width: 100%;
     &_search {
-      border: 2px solid #4fc3f7;
-      border-radius: 15px;
-      padding-left: 4px;
+      border: none;
+    }
+    &_input {
       margin-top: 20px;
       margin-bottom: 20px;
-      padding: 5px;
+      // border: 2px solid #4fc3f7;
+      // border-radius: 20px;
     }
     &_sorting {
       width: 50%;
@@ -20,15 +21,10 @@
     }
   }
 }
-
-.css-wjdba9-MuiInputBase-root-MuiInput-root:before {
-  display: none;
-}
-.css-wjdba9-MuiInputBase-root-MuiInput-root:after {
-  display: none;
-}
-
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
+// .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root {
+//   border: 2px solid #4fc3f7;
+//   border-radius: 20px;
+//   padding-left: 4px;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+// }

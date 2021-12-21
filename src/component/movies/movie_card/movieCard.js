@@ -2,7 +2,7 @@ import React from "react";
 import "./movieCard.scss";
 
 const MovieCard = ({ movie }) => {
-  const { title, rating, poster } = movie;
+  const { title, rating, poster, date } = movie;
 
   return (
     <div className="movie_wrapper">
@@ -15,6 +15,8 @@ const MovieCard = ({ movie }) => {
 
       <div className="movie_content">
         <h3 className="movie_content_rating"> Рейтинг: {rating}</h3>
+        <h3 className="movie_content_date">{date} </h3>
+
         <h2 className="movie_content__title"> {title} </h2>
       </div>
     </div>

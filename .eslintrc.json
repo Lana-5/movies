@@ -23,12 +23,12 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/function-component-definition": "off",
     "no-console": "off",
-    "no-unused-vars": [
-      "error",
-      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
-    ],
     "react/prop-types": "off",
     "no-shadow": "off",
-    "destructuring-assignment": "off"
+    "destructuring-assignment": "off",
+    "no-unused-vars": "off",
+    "no-plusplus": "off",
+    "prefer-arrow-callback": "off",
+    "func-names": "off"
   }
 }

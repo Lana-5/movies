@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
+
 import "./movieDetail.scss";
 import axios from "axios";
 
@@ -8,7 +10,7 @@ const MovieDetail = () => {
   const { id } = useParams();
 
   const [moviedetail, setMovieDetail] = useState([]);
-  //   const [loader, setLoader]= useState([false]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     axios
@@ -19,12 +21,22 @@ const MovieDetail = () => {
         const moviesInfo = res?.data || [];
 
         setMovieDetail(moviesInfo);
+
+        setLoader(false);
       });
   }, [id]);
 
+  if (loader) {
+    return (
+      <Grid container justifyContent="center" alignItems="center" height="50vh">
+        <CircularProgress />
+      </Grid>
+    );
+  }
+
   const { title, overview } = moviedetail;
   const poster = moviedetail.poster_path;
-  console.log(moviedetail);
+
   return (
     <Grid container justifyContent="center">
       <Grid container item xs={12} sm={10} md={9} lg={9}>
