@@ -29,6 +29,8 @@
     "no-unused-vars": "off",
     "no-plusplus": "off",
     "prefer-arrow-callback": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "no-constant-condition": "off",
+    "no-alert": "off"
   }
 }

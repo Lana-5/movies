@@ -1,0 +1,24 @@
+.people {
+  &_wrapper {
+    margin: 5px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 2px 8px silver;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+  &_image {
+    img {
+      border-radius: 15px;
+      height: 299px;
+    }
+  }
+
+  &_content {
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+
+    &_name {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

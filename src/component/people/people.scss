@@ -1,0 +1,12 @@
+.peoples {
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__header {
+      text-align: center;
+      font-family: "Source Sans Pro", "Arial", sans-serif;
+      width: 100%;
+    }
+  }
+}

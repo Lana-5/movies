@@ -19,4 +19,13 @@
       text-align: center;
     }
   }
+  &_notification {
+    // display: none;
+    width: 100%;
+    text-align: center;
+    color: orange;
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+  }
 }

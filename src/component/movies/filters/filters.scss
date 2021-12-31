@@ -5,26 +5,20 @@
       border: none;
     }
     &_input {
-      margin-top: 20px;
       margin-bottom: 20px;
-      // border: 2px solid #4fc3f7;
-      // border-radius: 20px;
     }
-    &_sorting {
-      width: 50%;
-      margin: 10px;
-    }
+
     &_wrapper {
+      margin-top: 20px;
       background-color: #e3f2fd;
       border-radius: 15px;
       padding: 5%;
     }
+    &_resetting {
+      margin-top: 20px;
+    }
+    &_notification {
+      margin-top: 10px;
+    }
   }
 }
-// .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root {
-//   border: 2px solid #4fc3f7;
-//   border-radius: 20px;
-//   padding-left: 4px;
-//   margin-top: 20px;
-//   margin-bottom: 20px;
-// }
