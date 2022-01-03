@@ -1,37 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import { fetchPeople } from "store/peopleSlice";
 import PeopleCard from "./peopleCard/peopleCard";
 import "./people.scss";
 
 const Peoples = () => {
-  const [peopleListInitial, setPeopleListInitial] = useState([]);
-  const [loader, setLoader] = useState(true);
+  const dispatch = useDispatch();
+
+  const peopleListInitial = useSelector(
+    (state) => state.people.peopleListInitial
+  );
+  const loader = useSelector((state) => state.people.loader);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/person/popular?api_key=b3b2808173dccf7a658ad31dd4253d93&language=ru-RU`
-      )
-      .then((res) => {
-        let peoples = res?.data?.results || [];
-
-        peoples =
-          peoples?.map((people) => ({
-            id: people?.id || "",
-            name: people?.name || "",
-            poster: people?.profile_path || "",
-            known_for: people?.known_for || [],
-            popularity: people?.popularity || 0,
-            gender: people?.gender || 0,
-          })) || [];
-        setPeopleListInitial(peoples);
-        setLoader(false);
-      });
-  }, []);
+    dispatch(fetchPeople());
+  }, [dispatch]);
 
   if (loader) {
     return (

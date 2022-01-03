@@ -210,7 +210,9 @@ const Additionally = () => {
           anchorOrigin={{ vertical: "top", horizontal: "center" }}
           open={errorMessenger}
           autoHideDuration={1500}
-          onClose={() => {}}
+          onClose={() => {
+            setErrorMessenger(false);
+          }}
         >
           <Alert onClose={() => {}} severity="error" sx={{ width: "100%" }}>
             Не успешно!

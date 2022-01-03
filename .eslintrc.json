@@ -31,6 +31,9 @@
     "prefer-arrow-callback": "off",
     "func-names": "off",
     "no-constant-condition": "off",
-    "no-alert": "off"
+    "no-alert": "off",
+    "import/no-unresolved": "off",
+    "extensions": "off",
+    "no-param-reassign": "off"
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import Header from "./component/header/header";
 import Peoples from "./component/people/people";
@@ -13,14 +14,14 @@ const App = () => (
     <BrowserRouter>
       <Header />
       <React.StrictMode>
-        {/* <Provider store={" "}> */}
-        <Routes>
-          <Route path="/" element={<Movies />} />
-          <Route path="/movie/:id" element={<MovieDetail />} />
-          <Route path="/people" element={<Peoples />} />
-          <Route path="/additionally" element={<Additionally />} />
-        </Routes>
-        {/* </Provider> */}
+        <Provider store={store}>
+          <Routes>
+            <Route path="/" element={<Movies />} />
+            <Route path="/movie/:id" element={<MovieDetail />} />
+            <Route path="/people" element={<Peoples />} />
+            <Route path="/additionally" element={<Additionally />} />
+          </Routes>
+        </Provider>
       </React.StrictMode>
     </BrowserRouter>
   </div>
