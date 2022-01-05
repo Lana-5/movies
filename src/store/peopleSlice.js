@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+
+import instance from "./api/api";
 
 const peopleSlice = createSlice({
   name: "people",
@@ -20,26 +21,19 @@ export default peopleSlice.reducer;
 
 export const fetchPeople = () => async (dispatch) => {
   try {
-    await axios
-      .get(
-        `https://api.themoviedb.org/3/person/popular?api_key=b3b2808173dccf7a658ad31dd4253d93&language=ru-RU`
-      )
-      .then((res) => {
-        let peoples = res?.data?.results || [];
+    await instance.get("/person/popular").then((res) => {
+      let peoples = res?.data?.results || [];
 
-        peoples =
-          peoples?.map((people) => ({
-            id: people?.id || "",
-            name: people?.name || "",
-            poster: people?.profile_path || "",
-            known_for: people?.known_for || [],
-            popularity: people?.popularity || 0,
-            gender: people?.gender || 0,
-          })) || [];
+      peoples =
+        peoples?.map((people) => ({
+          id: people?.id || "",
+          name: people?.name || "",
+          poster: people?.profile_path || "",
+        })) || [];
 
-        dispatch(setPeopleListInitial({ peopleListInitial: peoples }));
-        dispatch(setLoader({ loader: false }));
-      });
+      dispatch(setPeopleListInitial({ peopleListInitial: peoples }));
+      dispatch(setLoader({ loader: false }));
+    });
   } catch (e) {
     dispatch(setLoader({ loader: false }));
   }

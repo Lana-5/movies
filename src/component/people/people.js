@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Grid } from "@mui/material";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { fetchPeople } from "store/peopleSlice";
 import PeopleCard from "./peopleCard/peopleCard";

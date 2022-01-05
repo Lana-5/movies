@@ -3,7 +3,6 @@ import { Button, InputAdornment, TextField, Grid } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-
 import Select from "@mui/material/Select";
 import "./filters.scss";
 
@@ -16,15 +15,11 @@ const MoviesFilters = (props) => {
     genre,
     listGenres,
     onLabelChangeGenre,
-    movieListInitial,
-    setFilteredArray,
     resetFilter,
     textInput,
-    filteredMovies,
-    handleGenreClick,
   } = props;
 
-  const itemsgenre = listGenres?.map((item) => (
+  const itemsGenre = listGenres?.map((item) => (
     <MenuItem value={item.id} key={item.id}>
       {item.name}
     </MenuItem>
@@ -105,7 +100,7 @@ const MoviesFilters = (props) => {
                 label="Age"
                 onChange={onLabelChangeGenre}
               >
-                {itemsgenre}
+                {itemsGenre}
               </Select>
             </FormControl>
           </Grid>

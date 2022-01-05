@@ -13,16 +13,14 @@ const App = () => (
   <div className="App">
     <BrowserRouter>
       <Header />
-      <React.StrictMode>
-        <Provider store={store}>
-          <Routes>
-            <Route path="/" element={<Movies />} />
-            <Route path="/movie/:id" element={<MovieDetail />} />
-            <Route path="/people" element={<Peoples />} />
-            <Route path="/additionally" element={<Additionally />} />
-          </Routes>
-        </Provider>
-      </React.StrictMode>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<Movies />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route path="/people" element={<Peoples />} />
+          <Route path="/additionally" element={<Additionally />} />
+        </Routes>
+      </Provider>
     </BrowserRouter>
   </div>
 );

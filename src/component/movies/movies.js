@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
-
+import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./movies.scss";
-import MovieCard from "./movie_card/movieCard";
+import MovieCard from "./movieCard/movieCard";
 import MoviesFilters from "./filters/filters";
 
 const Movies = () => {
@@ -14,6 +14,7 @@ const Movies = () => {
   const [listGenres, setListGenres] = useState([]); // хранится список жанров их id и название
   const [sorting, setSorting] = useState(""); // сохраняется номер сортировки который был выбран ( как отсортировать данные)
   const [genre, setGenre] = useState(""); // хранится номер жанра который был выбран
+  const [loading, setLoading] = useState(true);
 
   const unificationFilms = (id) => {
     if (!id) {
@@ -77,6 +78,7 @@ const Movies = () => {
           })) || [];
         setmovieListInitial(movies);
         setFilteredArray(movies);
+        setLoading(false);
       });
   }, []);
 
@@ -139,6 +141,13 @@ const Movies = () => {
       ))
     : [];
 
+  if (loading) {
+    return (
+      <Grid container justifyContent="center" alignItems="center" height="50vh">
+        <CircularProgress />
+      </Grid>
+    );
+  }
   const item =
     filteredMovies.length === 0 ? "Нет фильмов по данному запросу" : [];
 
