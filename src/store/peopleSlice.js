@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-import instance from "./api/api";
+import moviedbAPI from "api/moviedbAPI";
 
 const peopleSlice = createSlice({
   name: "people",
@@ -21,19 +20,18 @@ export default peopleSlice.reducer;
 
 export const fetchPeople = () => async (dispatch) => {
   try {
-    await instance.get("/person/popular").then((res) => {
-      let peoples = res?.data?.results || [];
+    const res = await moviedbAPI.get("/person/popular");
+    let peoples = res?.data?.results || [];
 
-      peoples =
-        peoples?.map((people) => ({
-          id: people?.id || "",
-          name: people?.name || "",
-          poster: people?.profile_path || "",
-        })) || [];
+    peoples =
+      peoples?.map((people) => ({
+        id: people?.id || "",
+        name: people?.name || "",
+        poster: people?.profile_path || "",
+      })) || [];
 
-      dispatch(setPeopleListInitial({ peopleListInitial: peoples }));
-      dispatch(setLoader({ loader: false }));
-    });
+    dispatch(setPeopleListInitial({ peopleListInitial: peoples }));
+    dispatch(setLoader({ loader: false }));
   } catch (e) {
     dispatch(setLoader({ loader: false }));
   }

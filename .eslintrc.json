@@ -1,39 +1,42 @@
 {
   "env": {
+    // где будет исполняться наш код
     "browser": true,
-    "es2021": true
+    "es2021": true // использовать последнюю актуальную версию
   },
+  /* Настройки. prettier должен быть последним. 
+    Он удаляет некоторые правила eslint из-за которых могут возникать конфликты. */
+
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:import/recommended",
-    "airbnb",
-    "prettier"
+    // правила и модули которые использует линтер (устанавливали через npm)
+    "eslint:recommended", // подключаем eslint
+    "plugin:react/recommended", // чтобы eslint понимал  react
+    "plugin:react-hooks/recommended", // чтобы понимал хуки
+    "plugin:import/recommended", // устанавливаются правила для работы с import
+    "airbnb", // стиль написания кода от google
+    "prettier" // чтобы понимал prettier
   ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaVersion": 12, // версия стандарта JavaScript.
+    "sourceType": "module" // Позволяет использовать import/export
   },
+  // Здесь мы подключаем используемые плагины ( библиотеки).
   "plugins": ["react"],
+  /* Правила для отслеживания линтером.  
+    Тут можно прописать нужные правила вручную. */
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/function-component-definition": "off",
-    "no-console": "off",
-    "react/prop-types": "off",
-    "no-shadow": "off",
-    "destructuring-assignment": "off",
-    "no-unused-vars": "off",
-    "no-plusplus": "off",
-    "prefer-arrow-callback": "off",
-    "func-names": "off",
-    "no-constant-condition": "off",
-    "no-alert": "off",
-    "import/no-unresolved": "off",
-    "extensions": "off",
-    "no-param-reassign": "off"
+    // тут записываем что мы хотим переопределить или выключить
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // разрешает использование в коде JSX
+    "react/function-component-definition": "off", // отключили ( нельзя использовать стрелочные функции )
+
+    "no-param-reassign": "off", // так же требует указать тип данных у state в срезе
+
+    "import/no-unresolved": "off", // не разрешает абсолютный путь к файлу
+
+    "react/prop-types": "off", // отключили  правила проверки передаваемых типов
+    "no-unused-vars": "warn" // подчеркивает не используемые переменные ( которые были обьявлены, но не используются), предупреждает что такие переменные есть
   }
 }
