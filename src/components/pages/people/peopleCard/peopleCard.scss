@@ -9,7 +9,10 @@
   &_image {
     img {
       border-radius: 15px;
-      height: 299px;
+      max-height: 299px;
+      min-height: 299px;
+      min-width: 200px;
+      background-color: silver;
     }
   }
   &_content {
